@@ -1,0 +1,5 @@
+baseURL = 'https://kallit.app/'
+languageCode = 'en-us'
+title = 'Kallit'
+theme = 'kallit'
+enableRobotsTXT = true
