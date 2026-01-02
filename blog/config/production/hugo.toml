@@ -1,0 +1,4 @@
+baseURL = 'https://blog.kallit.app/'
+
+[params]
+  appUrl  = "https://kallit.app/"

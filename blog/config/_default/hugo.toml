@@ -1,0 +1,5 @@
+languageCode = 'en-us'
+title = 'kallit'
+theme = 'kallit'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']

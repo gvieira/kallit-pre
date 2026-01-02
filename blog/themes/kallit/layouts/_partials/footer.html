@@ -1,0 +1,22 @@
+<footer class="relative z-10 w-full bg-white dark:bg-black border-t-2 border-slate-100 dark:border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+        <div class="flex items-center gap-3">
+            {{ partial "logo.html" (dict "size" "text-xl") }}
+            <span class="text-slate-400">© 2026</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 font-semibold text-slate-600 dark:text-slate-400">
+            <div class="relative group cursor-help">
+                <a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4"
+                    href="#">Privacy Policy</a>
+                <div
+                    class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                    Coming soon
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black">
+                    </div>
+                </div>
+            </div>
+            <a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4"
+                href="https://x.com/kallitapp">Twitter / X</a>
+        </div>
+    </div>
+</footer>

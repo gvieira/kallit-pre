@@ -1,0 +1,4 @@
+baseURL = 'http://blog.kallit.local:1314/'
+
+[params]
+  appUrl  = "http://kallit.local:1313/"

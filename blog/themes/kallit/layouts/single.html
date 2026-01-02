@@ -1,0 +1,182 @@
+{{ define "main" }}
+<div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute inset-0 bg-dots opacity-10"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    {{/* Article Header */}}
+    <header class="mb-10">
+        <div class="space-y-4">
+            {{/* Categories */}}
+            {{ range first 1 .Params.categories }}
+            <div
+                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary uppercase tracking-wide">
+                {{ . }}
+            </div>
+            {{ end }}
+
+            <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1]">
+                {{ .Title }}
+            </h1>
+
+            {{ with .Params.description }}
+            <p class="text-xl text-slate-500 dark:text-slate-400 max-w-2xl font-normal leading-relaxed">
+                {{ . }}
+            </p>
+            {{ end }}
+        </div>
+
+        {{/* Author Meta */}}
+        <div class="mt-8 flex flex-wrap items-center gap-4 border-y border-slate-200 dark:border-slate-800 py-4">
+            <div class="flex items-center gap-3">
+                <img src="/gui.png" alt="Gui"
+                    class="h-12 w-12 rounded-full overflow-hidden ring-2 ring-white dark:ring-slate-800 bg-slate-100 dark:bg-slate-800 object-cover">
+                <div>
+                    <p class="text-base font-bold text-slate-900 dark:text-white">Gui</p>
+                    {{/* <p class="text-sm text-primary font-medium">Lead Data Architect</p> */}}
+                </div>
+            </div>
+
+            <div class="hidden sm:block h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+
+            <div class="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    {{ .Date.Format "Jan 2, 2006" }}
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">schedule</span>
+                    {{ .ReadingTime }} min read
+                </div>
+            </div>
+
+            <div class="flex-1"></div> {{/* Spacer */}}
+
+            <div class="flex gap-2">
+                <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">share</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    {{/* Featured Image */}}
+    {{ with .Params.image }}
+    <figure class="mb-12 relative group rounded-2xl overflow-hidden shadow-xl shadow-primary/5">
+        <div class="aspect-video w-full bg-slate-100 dark:bg-slate-800 relative">
+            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-full object-cover">
+        </div>
+    </figure>
+    {{ end }}
+
+    {{/* Article Body */}}
+    <article class="prose prose-lg prose-slate dark:prose-invert max-w-none font-display">
+        <div class="space-y-8 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+            {{ .Content }}
+        </div>
+    </article>
+
+    {{/* Tags */}}
+    {{ with .Params.tags }}
+    <div class="mt-12 flex flex-wrap gap-2">
+        {{ range . }}
+        <span
+            class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-primary/10 hover:text-primary cursor-pointer transition-colors">#{{
+            . }}</span>
+        {{ end }}
+    </div>
+    {{ end }}
+
+    <hr class="my-12 border-slate-200 dark:border-slate-800" />
+
+    {{/* Subscription CTA */}}
+    <div
+        class="my-16 flex flex-col items-center text-center bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-8 md:p-12 border border-slate-200 dark:border-slate-700">
+        <div class="mb-8 max-w-lg mx-auto">
+            <p class="text-xl md:text-2xl font-bold text-slate-800 dark:text-white mb-4 font-display">
+                Keep up with the journey.
+            </p>
+            <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                I write occasional notes about decisions, tradeoffs, and things I change my mind about.
+            </p>
+        </div>
+
+        <div class="w-full max-w-md">
+            <form class="flex flex-col gap-3 w-full">
+                <div class="relative w-full">
+                    <div
+                        class="w-full p-2 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-300 dark:border-slate-600 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
+                        <input
+                            class="w-full bg-transparent border-none rounded-xl px-4 py-3 pr-48 text-lg outline-none focus:ring-0 placeholder:text-slate-400 text-slate-800 dark:text-slate-100 placeholder:text-base"
+                            placeholder="hi@there.com" required type="email">
+                    </div>
+                    <button
+                        class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900 dark:bg-white hover:bg-primary dark:hover:bg-primary text-white dark:text-slate-900 dark:hover:text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all items-center justify-center gap-2 group whitespace-nowrap"
+                        type="button">
+                        <span>Follow the build</span>
+                        <span
+                            class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                    {{/* Mobile button below input */}}
+                    <button
+                        class="sm:hidden w-full mt-3 bg-slate-900 dark:bg-white hover:bg-primary dark:hover:bg-primary text-white dark:text-slate-900 dark:hover:text-white font-bold text-base px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 group whitespace-nowrap"
+                        type="button">
+                        <span>Follow the build</span>
+                        <span
+                            class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+                <p class="text-xs text-slate-500 font-medium flex items-center justify-center gap-1 mt-2">
+                    <span class="material-symbols-outlined text-sm">lock</span>
+                    No spam. Unsubscribe anytime.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    {{/* Post Navigation */}}
+    <section aria-label="Related articles">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Read Next</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {{ with .PrevInSection }}
+            <a class="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark p-5 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                href="{{ .RelPermalink }}">
+                <div
+                    class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    <span>Previous</span>
+                    <span>{{ .Date.Format "Jan 2" }}</span>
+                </div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                    {{ .Title }}
+                </h4>
+                <div class="mt-auto flex items-center text-sm text-slate-500 font-medium group-hover:text-primary">
+                    <span
+                        class="material-symbols-outlined mr-1 text-base transform group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Read Article
+                </div>
+            </a>
+            {{ end }}
+
+            {{ with .NextInSection }}
+            <a class="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-dark p-5 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                href="{{ .RelPermalink }}">
+                <div
+                    class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    <span>Next Up</span>
+                    <span>{{ .Date.Format "Jan 2" }}</span>
+                </div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                    {{ .Title }}
+                </h4>
+                <div
+                    class="mt-auto flex items-center justify-end text-sm text-slate-500 font-medium group-hover:text-primary">
+                    Read Article
+                    <span
+                        class="material-symbols-outlined ml-1 text-base transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </section>
+</div>
+{{ end }}
