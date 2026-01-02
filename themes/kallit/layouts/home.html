@@ -1,110 +1,108 @@
 {{ define "main" }}
 
-<body
-  class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-body min-h-screen flex flex-col overflow-x-hidden selection:bg-primary/30">
-  <div class="fixed inset-0 pointer-events-none z-0">
-    <div class="absolute inset-0 bg-dots opacity-40"></div>
+
+<div class="fixed inset-0 pointer-events-none z-0">
+  <div class="absolute inset-0 bg-dots opacity-40"></div>
+</div>
+
+<main class="relative z-10 flex-1 flex flex-col items-center px-4 pt-4 pb-20 w-full max-w-7xl mx-auto">
+  <div class="w-full flex flex-col items-center text-center gap-6 mb-16 lg:mb-20 max-w-4xl mx-auto">
+    <div
+      class="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-100 border border-yellow-300 text-yellow-800 dark:bg-yellow-900/30 dark:border-yellow-700 dark:text-yellow-300 transform -rotate-3 hover:rotate-0 transition-transform cursor-default overflow-hidden"
+      style="box-shadow: 0 6px 30px rgba(250, 204, 21, 1);">
+      <div class="absolute inset-0 bg-yellow-400/20 blur-md rounded-full"></div>
+      <span class="material-symbols-outlined text-sm filled relative z-10">construction</span>
+      <span class="font-bold text-xs uppercase tracking-wide relative z-10">Building in Public</span>
+    </div>
+
+    <h1
+      class="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-black dark:text-white leading-[1.05] mx-auto">
+      Make your <br class="md:hidden">
+      <span class="relative inline-block px-3 mx-1">
+        <span class="absolute inset-0 bg-primary transform -skew-y-2 rounded-lg shadow-soft-glow -z-10"></span>
+        <span class="text-white relative">claims.</span>
+      </span>
+      <br>
+      <span class="text-slate-400 dark:text-slate-500">Let time decide.</span>
+    </h1>
+
+    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
+      A public ledger for self-made claims. Each claim is time-bound, resolves automatically, and builds a public
+      track record over time.
+    </p>
+
+    <div class="w-full max-w-md mt-6 flex flex-col items-center">
+      <form class="flex flex-col gap-3 w-full">
+        <div class="relative w-full">
+          <div
+            class="w-full p-2 bg-white dark:bg-slate-800/50 rounded-2xl shadow-brutal border-2 border-black dark:border-slate-600">
+            <input
+              class="w-full bg-transparent border-none rounded-xl px-4 py-3 pr-48 text-lg outline-none focus:ring-0 placeholder:text-slate-400 text-slate-800 dark:text-slate-100"
+              placeholder="hi@there.com" required type="email">
+          </div>
+          <button
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary hover:bg-orange-600 text-white font-bold text-base px-6 py-2.5 rounded-xl shadow-none hover:shadow-md transition-all flex items-center justify-center gap-2 group whitespace-nowrap"
+            type="button">
+            <span>Follow the build</span>
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </div>
+        <p class="text-xs text-slate-500 font-medium flex items-center justify-center gap-1 mt-2">
+          <span class="material-symbols-outlined text-sm">lock</span>
+          No spam. Only outcomes.
+        </p>
+      </form>
+    </div>
   </div>
 
-  <main class="relative z-10 flex-1 flex flex-col items-center px-4 pt-4 pb-20 w-full max-w-7xl mx-auto">
-    <div class="w-full flex flex-col items-center text-center gap-6 mb-16 lg:mb-20 max-w-4xl mx-auto">
-      <div
-        class="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-100 border border-yellow-300 text-yellow-800 dark:bg-yellow-900/30 dark:border-yellow-700 dark:text-yellow-300 transform -rotate-3 hover:rotate-0 transition-transform cursor-default overflow-hidden"
-        style="box-shadow: 0 6px 30px rgba(250, 204, 21, 1);">
-        <div class="absolute inset-0 bg-yellow-400/20 blur-md rounded-full"></div>
-        <span class="material-symbols-outlined text-sm filled relative z-10">construction</span>
-        <span class="font-bold text-xs uppercase tracking-wide relative z-10">Building in Public</span>
-      </div>
-
-      <h1
-        class="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-black dark:text-white leading-[1.05] mx-auto">
-        Make your <br class="md:hidden">
-        <span class="relative inline-block px-3 mx-1">
-          <span class="absolute inset-0 bg-primary transform -skew-y-2 rounded-lg shadow-soft-glow -z-10"></span>
-          <span class="text-white relative">claims.</span>
+  <div class="relative w-full max-w-5xl mx-auto flex justify-center perspective-1000 mb-20">
+    <div
+      class="relative w-full max-w-[420px] bg-white dark:bg-card-dark rounded-3xl p-6 shadow-2xl border-2 border-slate-100 dark:border-slate-800 animate-float">
+      <div class="flex justify-between items-start mb-6">
+        <div class="flex items-center gap-3">
+          <img alt="Avatar" class="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 dark:border-slate-700"
+            src="/datanerd-avatar.jpg">
+          <div>
+            <h3 class="font-bold text-base text-black dark:text-white flex items-center gap-1">
+              DataNerd
+              <span class="material-symbols-outlined text-blue-500 text-[18px]">verified</span>
+            </h3>
+            <span class="text-xs text-slate-400">@datanerd • Resolved 2h ago</span>
+          </div>
+        </div>
+        <span
+          class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase dark:bg-blue-900/20 dark:text-blue-400 border border-blue-100 dark:border-blue-900/50">
+          Resolved
         </span>
-        <br>
-        <span class="text-slate-400 dark:text-slate-500">Let time decide.</span>
-      </h1>
-
-      <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
-        A public ledger for self-made claims. Each claim is time-bound, resolves automatically, and builds a public
-        track record over time.
-      </p>
-
-      <div class="w-full max-w-md mt-6 flex flex-col items-center">
-        <form class="flex flex-col gap-3 w-full">
-          <div class="relative w-full">
-            <div
-              class="w-full p-2 bg-white dark:bg-slate-800/50 rounded-2xl shadow-brutal border-2 border-black dark:border-slate-600">
-              <input
-                class="w-full bg-transparent border-none rounded-xl px-4 py-3 pr-48 text-lg outline-none focus:ring-0 placeholder:text-slate-400 text-slate-800 dark:text-slate-100"
-                placeholder="hi@there.com" required type="email">
-            </div>
-            <button
-              class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary hover:bg-orange-600 text-white font-bold text-base px-6 py-2.5 rounded-xl shadow-none hover:shadow-md transition-all flex items-center justify-center gap-2 group whitespace-nowrap"
-              type="button">
-              <span>Follow the build</span>
-              <span
-                class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </button>
-          </div>
-          <p class="text-xs text-slate-500 font-medium flex items-center justify-center gap-1 mt-2">
-            <span class="material-symbols-outlined text-sm">lock</span>
-            No spam. Only outcomes.
-          </p>
-        </form>
       </div>
-    </div>
 
-    <div class="relative w-full max-w-5xl mx-auto flex justify-center perspective-1000 mb-20">
-      <div
-        class="relative w-full max-w-[420px] bg-white dark:bg-card-dark rounded-3xl p-6 shadow-2xl border-2 border-slate-100 dark:border-slate-800 animate-float">
-        <div class="flex justify-between items-start mb-6">
-          <div class="flex items-center gap-3">
-            <img alt="Avatar" class="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 dark:border-slate-700"
-              src="/datanerd-avatar.jpg">
-            <div>
-              <h3 class="font-bold text-base text-black dark:text-white flex items-center gap-1">
-                DataNerd
-                <span class="material-symbols-outlined text-blue-500 text-[18px]">verified</span>
-              </h3>
-              <span class="text-xs text-slate-400">@datanerd • Resolved 2h ago</span>
-            </div>
-          </div>
-          <span
-            class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase dark:bg-blue-900/20 dark:text-blue-400 border border-blue-100 dark:border-blue-900/50">
-            Resolved
+      <div class="mb-6 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
+        <p class="text-slate-800 dark:text-slate-200 text-lg font-medium leading-snug mb-2">
+          BTC price reaches $200,000 by 2025.
+        </p>
+        <div class="flex items-center gap-2 text-sm">
+          <span class="font-bold text-slate-500 flex items-center gap-1">
+            Not met
           </span>
-        </div>
-
-        <div class="mb-6 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl">
-          <p class="text-slate-800 dark:text-slate-200 text-lg font-medium leading-snug mb-2">
-            BTC price reaches $200,000 by 2025.
-          </p>
-          <div class="flex items-center gap-2 text-sm">
-            <span class="font-bold text-slate-500 flex items-center gap-1">
-              Not met
-            </span>
-            <span class="text-slate-400">|</span>
-            <span class="text-slate-500 dark:text-slate-400">Actual: $87,508.83 USD</span>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between pt-2">
-          <div class="flex items-center gap-1 text-slate-400 text-xs font-bold uppercase tracking-wider">
-            <span class="material-symbols-outlined text-[16px]">source</span>
-            Source: CoinMarketCap
-          </div>
-        </div>
-
-        <div
-          class="absolute -right-6 -bottom-6 bg-yellow-300 text-black p-3 rounded-full shadow-brutal border-2 border-black animate-bounce-slight text-2xl z-20">
-          👀
+          <span class="text-slate-400">|</span>
+          <span class="text-slate-500 dark:text-slate-400">Actual: $87,508.83 USD</span>
         </div>
       </div>
-    </div>
 
-  </main>
-</body>
+      <div class="flex items-center justify-between pt-2">
+        <div class="flex items-center gap-1 text-slate-400 text-xs font-bold uppercase tracking-wider">
+          <span class="material-symbols-outlined text-[16px]">source</span>
+          Source: CoinMarketCap
+        </div>
+      </div>
+
+      <div
+        class="absolute -right-6 -bottom-6 bg-yellow-300 text-black p-3 rounded-full shadow-brutal border-2 border-black animate-bounce-slight text-2xl z-20">
+        👀
+      </div>
+    </div>
+  </div>
+
+</main>
+
 {{ end }}
