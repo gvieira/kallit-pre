@@ -1,1 +1,14 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<footer class="relative z-10 w-full bg-white dark:bg-black border-t-2 border-slate-100 dark:border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+        <div class="flex items-center gap-3">
+            {{ partial "logo.html" (dict "size" "text-xl") }}
+            <span class="text-slate-400">© 2026</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 font-semibold text-slate-600 dark:text-slate-400">
+            <a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4"
+                href="#">Privacy Policy</a>
+            <a class="hover:text-primary transition-colors hover:underline decoration-2 underline-offset-4"
+                href="https://x.com/kallitapp">Twitter / X</a>
+        </div>
+    </div>
+</footer>

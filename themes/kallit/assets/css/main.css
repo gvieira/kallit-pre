@@ -1,22 +1,41 @@
-body {
-  color: #222;
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+.bg-dots {
+    background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
 }
 
-header {
-  border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+.dark .bg-dots {
+    background-image: radial-gradient(#374151 1.5px, transparent 1.5px);
 }
 
-footer {
-  border-top: 1px solid #222;
-  margin-top: 1rem;
+.avatar-float {
+    animation: float 4s ease-in-out infinite;
 }
 
-a {
-  color: #00e;
-  text-decoration: none;
+.avatar-float:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.avatar-float:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.chat-bubble {
+    position: relative;
+    background: #ffffff;
+    border-radius: .4em;
+}
+
+.chat-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #ffffff;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -5px;
+    margin-bottom: -10px;
 }
