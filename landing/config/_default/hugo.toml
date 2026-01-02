@@ -1,5 +1,5 @@
-baseURL = 'https://kallit.app/'
 languageCode = 'en-us'
-title = 'Kallit'
+title = 'kallit'
 theme = 'kallit'
 enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']

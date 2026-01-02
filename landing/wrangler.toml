@@ -1,5 +1,5 @@
-name = 'defi-exec'
-compatibility_date = "2025-07-31"
+name = 'kallit-landing'
+compatibility_date = "2026-01-02"
 
 [build]
 command = "chmod a+x build.sh && ./build.sh"
