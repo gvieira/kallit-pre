@@ -61,7 +61,16 @@
                 {{ .Title }}
             </h3>
             <p class="text-slate-600 dark:text-slate-400 mb-6 flex-1">
-                {{ .Summary }}
+                {{ if .Params.description }}
+                {{ .Params.description }}
+                {{ else }}
+                {{ $p := findRE "<p.*?>.*?</p>" .Content 1 }}
+            {{ if $p }}
+            {{ index $p 0 | plainify }}
+            {{ else }}
+            {{ .Summary }}
+            {{ end }}
+            {{ end }}
             </p>
             <div class="flex items-center text-black dark:text-white font-bold text-sm mt-auto">
                 Read article <span
