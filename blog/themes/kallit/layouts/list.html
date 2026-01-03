@@ -45,7 +45,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto mb-16">
         {{ $colors := dict "Decision" "purple" "Design" "yellow" "Tech" "blue" "Reflection" "green" }}
         {{ range (.Paginate .Pages 6).Pages }}
-        {{ $category := index .Params.categories 0 | default "Protocol" }}
+        {{ $category := index .Params.categories 0 | default "Update" }}
         {{ $color := index $colors $category | default "gray" }}
         <article
             class="bg-white dark:bg-card-dark rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all flex flex-col group cursor-pointer h-full"
