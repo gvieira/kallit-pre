@@ -102,17 +102,18 @@
         </div>
 
         <div class="w-full max-w-md">
-            <form class="flex flex-col gap-3 w-full">
+            <form action="https://app.kit.com/forms/8935547/subscriptions" class="flex flex-col gap-3 w-full"
+                method="post">
                 <div class="relative w-full">
                     <div
                         class="w-full p-2 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-300 dark:border-slate-600 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
-                        <input
+                        <input name="email_address"
                             class="w-full bg-transparent border-none rounded-xl px-4 py-3 pr-48 text-lg outline-none focus:ring-0 placeholder:text-slate-400 text-slate-800 dark:text-slate-100 placeholder:text-base"
                             placeholder="hi@there.com" required type="email">
                     </div>
                     <button
                         class="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-slate-900 dark:bg-white hover:bg-primary dark:hover:bg-primary text-white dark:text-slate-900 dark:hover:text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all items-center justify-center gap-2 group whitespace-nowrap"
-                        type="button">
+                        type="submit">
                         <span>Follow the build</span>
                         <span
                             class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -120,7 +121,7 @@
                     {{/* Mobile button below input */}}
                     <button
                         class="sm:hidden w-full mt-3 bg-slate-900 dark:bg-white hover:bg-primary dark:hover:bg-primary text-white dark:text-slate-900 dark:hover:text-white font-bold text-base px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 group whitespace-nowrap"
-                        type="button">
+                        type="submit">
                         <span>Follow the build</span>
                         <span
                             class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -133,6 +134,14 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Clear the form when the page is shown (handles back button / BFcache)
+        window.addEventListener('pageshow', (event) => {
+            const forms = document.querySelectorAll('form[action*="kit.com"]');
+            forms.forEach(form => form.reset());
+        });
+    </script>
 
     {{/* Post Navigation */}}
     <section aria-label="Related articles">

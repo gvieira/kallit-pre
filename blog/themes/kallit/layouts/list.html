@@ -18,17 +18,18 @@
             Product decisions, tradeoffs, and things I changed my mind about.
         </p>
         <div class="w-full max-w-sm mt-8 flex flex-col items-center">
-            <form class="flex flex-col gap-3 w-full">
+            <form action="https://app.kit.com/forms/8935540/subscriptions" class="flex flex-col gap-3 w-full"
+                method="post">
                 <div class="relative w-full">
                     <div
                         class="w-full p-1.5 bg-white dark:bg-slate-800/50 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
-                        <input
+                        <input name="email_address"
                             class="w-full bg-transparent border-none rounded-xl px-4 py-2.5 pr-36 text-base outline-none focus:ring-0 placeholder:text-slate-400 text-slate-800 dark:text-slate-100"
                             placeholder="hi@there.com" required type="email">
                     </div>
                     <button
                         class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-200 border border-slate-200 dark:border-slate-600 font-bold text-xs px-3 py-1.5 rounded-lg shadow-none transition-all flex items-center justify-center gap-2 group whitespace-nowrap"
-                        type="button">
+                        type="submit">
                         <span>Follow the build</span>
                         <span
                             class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
@@ -132,4 +133,13 @@
     {{ end }}
 
 </main>
+
+<script>
+    // Clear the form when the page is shown (handles back button / BFcache)
+    window.addEventListener('pageshow', (event) => {
+        const forms = document.querySelectorAll('form[action*="kit.com"]');
+        forms.forEach(form => form.reset());
+    });
+</script>
+
 {{ end }}
